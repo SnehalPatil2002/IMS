@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20231013085619",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "raw_material_consumption",
+  "fields": [
+    {
+      "fieldName": "quantityConsumed",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "scrapGenerated",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalMaterialCost",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "RawMaterialConsumption",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "projects",
+      "ownerSide": true,
+      "relationshipName": "projects",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "products",
+      "ownerSide": true,
+      "relationshipName": "products",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "productionLine",
+      "ownerSide": true,
+      "relationshipName": "productionLine",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "rawMaterial",
+      "ownerSide": true,
+      "relationshipName": "rawMaterial",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

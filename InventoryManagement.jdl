@@ -1,0 +1,203 @@
+
+entity RawMaterial {
+	 name String
+     barcode String 
+     quantity Long
+     unitPrice Double
+     unitMeasure Unit
+     gstPercentage Double 
+     reorderPoint Long 
+}
+
+entity Warehouse {
+	whName String
+    address String
+    pincode Long
+    city String
+    managerName String
+    managerEmail String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Clients {
+	sname String
+	semail String
+    mobileNo Long
+    companyName String
+    companyContactNo Long
+    address String
+	pinCode String
+	city String
+    clientType ClientType
+}
+
+entity PurchaseQuotation {
+	referenceNumber String
+    totalPOAmount Double
+    totalGSTAmount Double
+    poDate Instant
+    expectedDeliveryDate Instant
+    orderStatus Status
+}
+
+entity PurchaseQuotationDetails {
+	qtyOrdered Long
+    gstTaxPercentage Integer
+    pricePerUnit Double
+    totalPrice Double
+    discount Double
+}
+
+entity OrderRecieved {
+	orDate Instant
+    qtyOrdered Long
+    qtyRecieved Long
+    manufacturingDate Instant
+	expiryDate Instant
+    qtyApproved Long
+    qtyRejected Long
+}
+
+entity PurchaseRequest{
+	qtyRequired Long
+    requestDate Instant
+    expectedDate Instant
+    status Status
+}
+
+
+entity SalesOrderd {
+	orderDate Instant
+	quantitySold Long
+    unitPrice Double
+    gstPercentage Double
+    totalRevenue Double
+    status DeliveryStatus
+}
+entity Projects{
+	projectName String
+    startDate Instant
+    endDate Instant
+    orderQuantity Long
+    esimatedBudget Double
+    finalTotal Double
+}
+
+entity Products{
+	productName String
+    availableQty Double
+    manufacturingCost Double
+    labourCost Double
+}
+entity RawMaterialConsumption{
+	quantityConsumed Double
+    scrapGenerated Double
+    totalMaterialCost Double
+}
+
+entity ProductConsumption{
+	quantityConsumed Double
+    totalProductCost Double
+}
+
+entity TotalConsumption{
+	totalMaterialCost Double
+    totalProductsCost Double
+    finalCost Double
+}
+
+entity ProductionLine{
+	description String
+	isActive Boolean 
+}
+entity StockRequest{
+	qtyRequired Double
+    reqDate Instant
+    isProd Boolean 
+    status Status 
+}
+enum Unit {
+    UNIT, KG , METRE
+}
+
+enum Status{
+	REQUESTED(Requested),
+    APPROVED(Approved),
+    CANCELED(Canceled),
+    RECEIVED(Received),
+    COMPLETED(Completed)
+}
+
+enum ClientType{
+	SUPPLIER(Supplier),
+    CONSUMER(Consumer),
+    BOTH(Both),
+    OTHER(Other)
+}
+
+enum DeliveryStatus{
+	ORDERED, SHIPPED, DELIVERED
+}
+
+relationship OneToOne {
+	PurchaseRequest{rawMaterial} to RawMaterial
+    PurchaseQuotationDetails{rawMaterial} to RawMaterial
+    
+    
+	ProductionLine{product} to Products
+    StockRequest{rawMaterial} to RawMaterial
+    StockRequest{product} to Products
+	
+    
+}
+
+relationship OneToOne{
+	RawMaterialConsumption{projects} to Projects 
+    RawMaterialConsumption{products} to Products 
+    RawMaterialConsumption{productionLine} to ProductionLine 
+    RawMaterialConsumption{rawMaterial} to RawMaterial
+    
+    ProductConsumption{projects} to Projects
+    ProductConsumption{product} to Products
+    ProductConsumption{products(productName)} to Products
+    
+    TotalConsumption{projects} to Projects
+    TotalConsumption{products} to Products
+    
+}
+
+relationship ManyToMany {
+	RawMaterial{products} to Products{rawMaterial}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	PurchaseQuotation to PurchaseQuotationDetails{purchaseQuotation}
+    PurchaseQuotation to OrderRecieved{purchaseQuotation}
+    Warehouse{rawMaterial} to RawMaterial{warehouse}
+    Clients{salesOrderd} to SalesOrderd{client}
+}
+
+relationship ManyToOne {
+	PurchaseQuotation{clients} to Clients
+    
+    StockRequest{products} to Products
+    StockRequest{productionLine} to ProductionLine
+    StockRequest{projects} to Projects
+}
+
+
+// Set pagination options
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+filter *
+// Set an angular suffix
+// angularSuffix * with tvg

@@ -11,7 +11,33 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085609_added_entity_RawMaterial.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085610_added_entity_Warehouse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085611_added_entity_Clients.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085612_added_entity_PurchaseQuotation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085613_added_entity_PurchaseQuotationDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085614_added_entity_OrderRecieved.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085615_added_entity_PurchaseRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085616_added_entity_SalesOrderd.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085617_added_entity_Projects.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085618_added_entity_Products.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085619_added_entity_RawMaterialConsumption.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085620_added_entity_ProductConsumption.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085621_added_entity_TotalConsumption.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085622_added_entity_ProductionLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085623_added_entity_StockRequest.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20231013085609_added_entity_constraints_RawMaterial.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085612_added_entity_constraints_PurchaseQuotation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085613_added_entity_constraints_PurchaseQuotationDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085614_added_entity_constraints_OrderRecieved.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085615_added_entity_constraints_PurchaseRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085616_added_entity_constraints_SalesOrderd.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085619_added_entity_constraints_RawMaterialConsumption.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085620_added_entity_constraints_ProductConsumption.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085621_added_entity_constraints_TotalConsumption.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085622_added_entity_constraints_ProductionLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231013085623_added_entity_constraints_StockRequest.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

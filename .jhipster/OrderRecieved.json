@@ -1,0 +1,51 @@
+{
+  "applications": "*",
+  "changelogDate": "20231013085614",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "order_recieved",
+  "fields": [
+    {
+      "fieldName": "orDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "qtyOrdered",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "qtyRecieved",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "manufacturingDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "expiryDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "qtyApproved",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "qtyRejected",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "OrderRecieved",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "purchaseQuotation",
+      "otherEntityRelationshipName": "orderRecieved",
+      "relationshipName": "purchaseQuotation",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

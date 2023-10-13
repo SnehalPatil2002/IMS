@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity RawMaterialConsumption.
+    -->
+    <changeSet id="20231013085619-1" author="jhipster">
+        <createTable tableName="raw_material_consumption">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="quantity_consumed" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="scrap_generated" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="total_material_cost" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="projects_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_raw_material_consumption__projects_id" />
+            </column>
+            <column name="products_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_raw_material_consumption__products_id" />
+            </column>
+            <column name="production_line_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_raw_material_consumption__production_line_id" />
+            </column>
+            <column name="raw_material_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_raw_material_consumption__raw_material_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20231013085619-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/raw_material_consumption.csv"
+                  separator=";"
+                  tableName="raw_material_consumption"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="quantity_consumed" type="numeric"/>
+            <column name="scrap_generated" type="numeric"/>
+            <column name="total_material_cost" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20231013085617",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "projects",
+  "fields": [
+    {
+      "fieldName": "projectName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "orderQuantity",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "esimatedBudget",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "finalTotal",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Projects",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

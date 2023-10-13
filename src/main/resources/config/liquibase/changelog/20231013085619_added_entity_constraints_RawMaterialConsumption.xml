@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity RawMaterialConsumption.
+    -->
+    <changeSet id="20231013085619-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="projects_id"
+                                 baseTableName="raw_material_consumption"
+                                 constraintName="fk_raw_material_consumption__projects_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="projects"/>
+
+        <addForeignKeyConstraint baseColumnNames="products_id"
+                                 baseTableName="raw_material_consumption"
+                                 constraintName="fk_raw_material_consumption__products_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="products"/>
+
+        <addForeignKeyConstraint baseColumnNames="production_line_id"
+                                 baseTableName="raw_material_consumption"
+                                 constraintName="fk_raw_material_consumption__production_line_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="production_line"/>
+
+        <addForeignKeyConstraint baseColumnNames="raw_material_id"
+                                 baseTableName="raw_material_consumption"
+                                 constraintName="fk_raw_material_consumption__raw_material_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="raw_material"/>
+    </changeSet>
+</databaseChangeLog>

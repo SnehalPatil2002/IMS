@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20231013085618",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "products",
+  "fields": [
+    {
+      "fieldName": "productName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "availableQty",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "manufacturingCost",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "labourCost",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Products",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "rawMaterial",
+      "otherEntityRelationshipName": "products",
+      "ownerSide": false,
+      "relationshipName": "rawMaterial",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}
